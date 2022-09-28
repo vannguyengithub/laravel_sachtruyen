@@ -26,4 +26,5 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::resource('/danhmuc', DanhmucController::class);
 Route::resource('/truyen', TruyenController::class);
+Route::resource('/chapter', ChapterController::class);
 

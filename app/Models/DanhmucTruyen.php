@@ -18,7 +18,10 @@ class DanhmucTruyen extends Model
         'slug_danhmuc'
     ];
 
-    // protected $primaryKey = 'id';
+    protected $primaryKey = 'id';
     protected $table = 'danhmuc';
 
+    public function truyen() {
+        return $this->hasMany('App\Models\Truyen');
+    }
 }

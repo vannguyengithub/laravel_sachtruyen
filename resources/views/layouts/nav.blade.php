@@ -7,9 +7,9 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                {{-- <li class="nav-item active">
                     <a class="nav-link" href="{{ route('home')}}">Admin <span class="sr-only">(current)</span></a>
-                </li>
+                </li> --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Quản lý danh mục
@@ -26,6 +26,15 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('truyen.create')}}">Thêm sách truyện</a>
                         <a class="dropdown-item" href="{{ route('truyen.index')}}">Liệt kê sách truyện</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Chapter
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('chapter.create')}}">Thêm chapter</a>
+                        <a class="dropdown-item" href="{{ route('chapter.index')}}">Liệt kê sách chapter</a>
                     </div>
                 </li>
             </ul>

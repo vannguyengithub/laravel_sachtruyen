@@ -25,6 +25,7 @@
                                 <th scope="col">Hình ảnh</th>
                                 <th scope="col">Slug truyện</th>
                                 <th scope="col">Tóm tắc</th>
+                                <th scope="col">Tác giả</th>
                                 <th scope="col">Danh mục</th>
                                 <th scope="col">Trang Thái</th>
                                 <th scope="col">Quản lý</th>
@@ -44,6 +45,7 @@
                                             {{ $truyen->tomtat}}
                                         </span>
                                     </td>
+                                    <td class="align-middle">{{$truyen->tacgia}}</td>
                                     <td class="align-middle">{{$truyen->danhmuctruyen->tendanhmuc}}</td>
                                     <td class="align-middle">
                                         @if ($truyen->kichhoat == 0)

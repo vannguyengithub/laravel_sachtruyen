@@ -15,6 +15,7 @@ class Truyen extends Model
         'tentruyen',
         'tomtat',
         'kichhoat',
+        'tacgia',
         'slug_truyen',
         'hinhanh',
         'danhmuc_id',
@@ -26,5 +27,8 @@ class Truyen extends Model
 
     public function danhmuctruyen() {
         return $this->belongsTo('App\Models\DanhmucTruyen', 'danhmuc_id', 'id');
+    }
+    public function chapter() {
+        return $this->hasMany('App\Models\Chapter', 'truyen_id', 'id');
     }
 }

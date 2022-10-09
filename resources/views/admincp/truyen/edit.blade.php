@@ -45,6 +45,10 @@
                             <input type="text" class="form-control" value="{{$truyen->slug_truyen}}" name="slug_truyen" id="convert_slug" aria-describedby="emailHelp" placeholder="Slug tên truyện">
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputEmail1">Tác giả</label>
+                            <input type="text" class="form-control" value="{{$truyen->tacgia}}" name="tacgia" aria-describedby="emailHelp" placeholder="tác giả">
+                        </div
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Tóm tắc truyện</label>
                             <textarea class="form-control" name="tomtat" id="exampleFormControlTextarea1" rows="3">{{$truyen->tomtat}}</textarea>
                         </div>

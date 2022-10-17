@@ -11,7 +11,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -79,6 +78,10 @@
             @yield('content')
         </main>
     </div>
+    <script src="//cdn.ckeditor.com/4.20.0/full/ckeditor.js"></script>
+    <script type="text/javascript">
+        CKEDITOR.replace('noidung_chapter');
+    </script>
     <script type="text/javascript">
         function ChangeToSlug()
             {
@@ -111,5 +114,6 @@
                 document.getElementById('convert_slug').value = slug;
             }
     </script>
+     
 </body>
 </html>

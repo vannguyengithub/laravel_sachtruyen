@@ -22,9 +22,21 @@
     </div>
     <!-- Breadcrumb End -->
     <div class="container mt-5">
-        <div class="">
+        <div class="row">
+            {{-- <select class="form-select" class="select-chapter" id="select-chapter" name="kichhoat">
+                @foreach($all_chapter as $key => $chap)
+                <option value="{{url('xem-chapter/'.$chap->slug_chapter)}}">{{$chap->tieude}}</option>
+                @endforeach
+            </select> --}}
+        </div>
+    </div>
+    
+    <div class="container mt-5">
+        <div>
             <div class="section-title">
-                <h5>TÊN TRUYỆN: {{$chapter->truyen->tentruyen}}->{{$chapter->tieude}}</h5>
+                <h5>TÊN TRUYỆN: {{$chapter->truyen->tentruyen}}</h5>
+                <br>
+                <h6 class="text-white">{{$chapter->tieude}}</h6>
                 {{-- <p class="mt-3 text-white">chương hiện tại->{{$chapter->tieude}}</p> --}}
             </div>
             {{-- <div class="text-white">
@@ -32,6 +44,11 @@
             </div> --}}
             <div class="text-white">
                 {!! $chapter->noidung!!}
+            </div>
+            <div class="d-flex justify-content-center mt-2" style="gap: 12px">
+                <a class="btn btn-primary" href="{{url('xem-chapter/'.$previous_chapter)}}"> <--Tập trước</a>
+                
+                <a class="btn btn-primary {{$chapter->id==$max_id->id ? 'disabled' : ''}} " href="{{url('xem-chapter/'.$next_chapter)}}">Tập sau--> </a>
             </div>
         </div>
     </div>
@@ -57,14 +74,6 @@
                         <a href="#">Ep 09</a>
                         <a href="#">Ep 10</a>
                         <a href="#">Ep 11</a>
-                        <a href="#">Ep 12</a>
-                        <a href="#">Ep 13</a>
-                        <a href="#">Ep 14</a>
-                        <a href="#">Ep 15</a>
-                        <a href="#">Ep 16</a>
-                        <a href="#">Ep 17</a>
-                        <a href="#">Ep 18</a>
-                        <a href="#">Ep 19</a>
                     </div>
                 </div>
             </div>

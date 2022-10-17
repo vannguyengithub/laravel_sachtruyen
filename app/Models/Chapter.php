@@ -22,6 +22,7 @@ class Chapter extends Model
     protected $primaryKey = 'id';
     protected $table = 'chapter';
 
+    // một chapter chỉ có thể thuộc một truyện
     public function truyen() {
         return $this->belongsTo('App\Models\Truyen');
     }

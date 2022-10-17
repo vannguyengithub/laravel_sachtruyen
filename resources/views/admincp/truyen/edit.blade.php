@@ -37,6 +37,14 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="exampleFormControlSelect2">Thể loại </label>
+                            <select class="form-control" name="theloai_id" id="exampleFormControlSelect2">
+                                @foreach($theloai as $key => $value)  
+                                    <option {{$value->id==$truyen->theloai_id ? 'selected' : ''}} value="{{$value->id}}">{{$value->tentheloai}}</option >
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Tên truyện</label>
                             <input type="text" class="form-control" value="{{$truyen->tentruyen}}" name="tentruyen" onkeyup="ChangeToSlug()" id="slug" aria-describedby="emailHelp" placeholder="Tên truyện">
                         </div>

@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
-                <div class="card-header">Liệt kê truyện</div>
+                <div class="card-header">Liệt kê thể loại</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -21,36 +21,26 @@
                             <thead>
                               <tr>
                                 <th scope="col">stt</th>
-                                <th scope="col">Tên truyện</th>
-                                <th scope="col">Hình ảnh</th>
-                                <th scope="col">Slug truyện</th>
-                                <th scope="col">Tóm tắc</th>
-                                <th scope="col">Tác giả</th>
-                                <th scope="col">Danh mục</th>
-                                <th scope="col">Thể loại</th>
+                                <th scope="col">Tên thể loại</th>
+                                <th scope="col">Slug</th>
+                                <th scope="col">Mô tả</th>
                                 <th scope="col">Trang Thái</th>
                                 <th scope="col">Quản lý</th>
                               </tr>
                             </thead>
                             <tbody>
-                                @foreach($list_truyen as $key => $truyen)  
+                                @foreach($theloai as $key => $value)  
                                 <tr>
                                     <th class="align-middle" scope="row">{{ $key }}</th>
-                                    <td class="align-middle">{{ $truyen->tentruyen}}</td>
-                                    <td class="align-middle">
-                                        <img src="{{asset('public/uploads/truyen/'.$truyen->hinhanh)}}" class="" alt="..." width="150px" height="150px" style="object-fit: cover; border: 1px solid; border-radius: 8px">
-                                    </td>
-                                    <td class="align-middle">{{ $truyen->slug_truyen}}</td>
+                                    <td class="align-middle">{{ $value->tentheloai}}</td>
+                                    <td class="align-middle">{{ $value->slug_theloai}}</td>
                                     <td class="align-middle">
                                         <span class="sort-content" style="overflow: hidden; -webkit-line-clamp: 6; -webkit-box-orient: vertical; display: -webkit-box; width: 190px;">
-                                            {{ $truyen->tomtat}}
+                                            {{ $value->mota}}
                                         </span>
                                     </td>
-                                    <td class="align-middle">{{$truyen->tacgia}}</td>
-                                    <td class="align-middle">{{$truyen->danhmuctruyen->tendanhmuc}}</td>
-                                    <td class="align-middle">{{$truyen->theloai->tentheloai}}</td>
                                     <td class="align-middle">
-                                        @if ($truyen->kichhoat == 0)
+                                        @if ($value->kichhoat == 0)
                                             <span class="text-success">Kích hoạt</span>
                                         @else
                                         <span class="text-danger">Không kích hoạt</span>
@@ -58,8 +48,8 @@
                                     </td>
                                     <td class="align-middle">
                                         <div class="d-flex">
-                                            <a href="{{ route('truyen.edit', [$truyen->id])}}" class="btn btn-primary mr-2">Edit</a>
-                                            <form action="{{ route('truyen.destroy', [$truyen->id])}}" method="POST">
+                                            <a href="{{ route('theloai.edit', [$value->id])}}" class="btn btn-primary mr-2">Edit</a>
+                                            <form action="{{ route('theloai.destroy', [$value->id])}}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
                                                 <button class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa?');">

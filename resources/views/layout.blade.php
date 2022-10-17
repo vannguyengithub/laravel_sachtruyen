@@ -37,7 +37,7 @@
                     <div class="col-lg-2">
                         <div class="header__logo">
                             <a href="{{url('/')}}">
-                                <img src="https://manga.thoaiky.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.2d73736c.png&w=256&q=75" alt="">
+                                <h4 class="text-white">Dosi-in</h4>
                             </a>
                         </div>
                     </div>
@@ -47,12 +47,8 @@
                                 <ul>
                                     <li class="active"><a href="{{url('/')}}">Trang chủ</a></li>
                                     <li>
-                                        <a href="./categories.html">Danh mục truyện
-                                            {{-- <span>
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M6.34317 7.75732L4.92896 9.17154L12 16.2426L19.0711 9.17157L17.6569 7.75735L12 13.4142L6.34317 7.75732Z" fill="currentColor" />
-                                                </svg>
-                                            </span> --}}
+                                        <a href="./categories.html">
+                                            Danh mục truyện
                                         </a>
                                         <ul class="dropdown">
                                             @foreach($danhmuc as $key => $cate)
@@ -63,20 +59,15 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="./categories.html">Thể loại
-                                            {{-- <span>
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M6.34317 7.75732L4.92896 9.17154L12 16.2426L19.0711 9.17157L17.6569 7.75735L12 13.4142L6.34317 7.75732Z" fill="currentColor" />
-                                                </svg>
-                                            </span> --}}
+                                        <a href="./categories.html">
+                                            Thể loại
                                         </a>
                                         <ul class="dropdown">
+                                            @foreach($theloai as $key => $value)
                                             <li>
-                                                <a href="./categories.html">Hoạt hình</a>
+                                                <a href="{{url('the-loai/'.$value->slug_theloai)}}">{{$value->tentheloai}}</a>
                                             </li>
-                                            <li>
-                                                <a href="./anime-details.html">Anime Details</a>
-                                            </li>
+                                            @endforeach
                                         </ul>
                                     </li>
                                     <li>
@@ -159,5 +150,24 @@
         <script src="{{ asset('js/jquery.slicknav.js') }}" ></script>
         <script src="{{ asset('js/owl.carousel.js') }}" ></script>
         <script src="{{ asset('js/main.js') }}" ></script>
+        
+        
+
+        <script type="text/javascript">
+            $("#select-chapter").on('change', function() {
+                var url = $(this).val();
+                if(url) {
+                    window.location = url;
+                }
+                return false;
+            });
+
+            current_chapter();
+            function current_chapter() {
+                var url = window.location.href;
+                $('#select-chapter').find('li[value="'+url+'"]').classList.add("selected");
+                $('#select-chapter').find('option[value="'+url+'"]').attr("selected", true);
+            }
+        </script>
     </body>
 </html>

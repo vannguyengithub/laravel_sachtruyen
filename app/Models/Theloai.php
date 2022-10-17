@@ -5,24 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DanhmucTruyen extends Model
+class Theloai extends Model
 {
     use HasFactory;
 
     public $timestamps = false;
 
     protected $fillable = [
-        'tendanhmuc',
+        'tentheloai',
+        'slug_theloai',
         'mota',
-        'kichhoat',
-        'slug_danhmuc'
+        'kichhoat'
     ];
-
     protected $primaryKey = 'id';
-    protected $table = 'danhmuc';
+    protected $table = 'theloai';
 
-    // một danh mục truyện có thể thuộc nhiều truyện
+    // thể loại có thể thuộc nhiều truyện
     public function truyen() {
         return $this->hasMany('App\Models\Truyen');
     }
+
 }

@@ -1,9 +1,4 @@
 @extends('../layout')
-{{-- indexcontroller nó đi đến đây và extent của layout và section content lấy yeld(content) --}}
-{{-- 
-@section('slide')
-    @include('pages.slide')
-@endsection --}}
 
 @section('content')
    <!-- Breadcrumb Begin -->
@@ -13,7 +8,7 @@
               <div class="col-lg-12">
                   <div class="breadcrumb__links">
                       <a href="{{url('/')}}"><i class="fa fa-home"></i> Trang chủ</a>
-                      <span>{{$danhmuc_id->tendanhmuc}}</span>
+                      <span>{{$tentheloai}}</span>
                   </div>
               </div>
           </div>
@@ -30,7 +25,7 @@
                    <div class="row">
                       <div class="col-lg-8 col-md-8 col-sm-6">
                          <div class="section-title">
-                            <h4>{{$danhmuc_id->tendanhmuc}}</h4>
+                            <h4>{{$tentheloai}}</h4>
                          </div>
                       </div>
                       <div class="col-lg-4 col-md-4 col-sm-6">
@@ -50,7 +45,7 @@
                            $count = count($truyen);
                      @endphp
                      @if($count == 0)  
-                           <h6 class="anime__review__item__text text-white w-100">Chapter đang cập nhật...</h6>
+                           <h6 class="anime__review__item__text text-white w-100">Truyện thuộc thể loại đang cập nhật...</h6>
                      @else 
 
                      @foreach($truyen as $key => $value)    

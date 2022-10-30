@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tóm tắt thể loại</label>
-                            <input type="text" class="form-control" value="{{old('mota')}}" name="mota" id="noidung_chapter" aria-describedby="emailHelp" placeholder="mô tả thể loại">
+                            <input type="text" class="form-control" value="{{old('mota')}}" name="mota" id="" aria-describedby="emailHelp" placeholder="mô tả thể loại">
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Trạng thái </label>
@@ -46,7 +46,7 @@
                               <option value="1">Không kích hoạt</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Thêm danh mục</button>
+                        <button type="submit" class="btn btn-pirmary">Thêm danh mục</button>
                     </form>
                 </div>
             </div>

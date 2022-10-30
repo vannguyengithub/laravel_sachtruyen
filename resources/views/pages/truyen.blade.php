@@ -1,9 +1,4 @@
 @extends('../layout')
-{{-- indexcontroller nó đi đến đây và extent của layout và section content lấy yeld(content) --}}
-
-{{-- @section('slide')
-    @include('pages.slide')
-@endsection --}}
 
 @section('content')
     <!-- Breadcrumb Begin -->
@@ -12,9 +7,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
-                        <a href="./index.html"><i class="fa fa-home"></i> Home</a>
-                        <a href="./categories.html">Categories</a>
-                        <span>Romance</span>
+                        <a href="{{url('/')}}"><i class="fa fa-home"></i> Trang chủ</a>
+                        <a href="{{url('danh-muc/'.$truyen->danhmuctruyen->slug_danhmuc)}}"><i class="fa fa-home"></i> {{$truyen->danhmuctruyen->tendanhmuc}} </a>
+                        <span>{{$truyen->tentruyen}}</span>
                     </div>
                 </div>
             </div>
@@ -37,7 +32,6 @@
                         <div class="anime__details__text">
                             <div class="anime__details__title">
                                 <h3>{{$truyen->tentruyen}}</h3>
-                                {{-- <span>フェイト／ステイナイト, Feito／sutei naito</span> --}}
                                 <span>{{$truyen->tacgia}}</span>
                             </div>
                             <div class="anime__details__rating">
@@ -57,8 +51,8 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6">
                                         <ul>
-                                            <li><span>Type:</span> TV Series</li>
-                                            <li><span>Studios:</span> Lerche</li>
+                                            <li><span>Type:</span> {{$truyen->theloai->tentheloai}}</li>
+                                            <li><span>Danh mục:</span> {{$truyen->danhmuctruyen->tendanhmuc}}</li>
                                             <li><span>Date aired:</span> Oct 02, 2019 to ?</li>
                                             <li><span>Status:</span> Airing</li>
                                             <li><span>Genre:</span> Action, Adventure, Fantasy, Magic</li>

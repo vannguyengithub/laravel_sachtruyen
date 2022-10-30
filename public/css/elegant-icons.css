@@ -96,10 +96,24 @@ you can use the generic selector below, but it's slower:
 	content: "\33";
 }
 .arrow_carrot-left:before {
-	content: "\34";
+	content: "";
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 36.6667C29.2048 36.6667 36.6667 29.2047 36.6667 20C36.6667 10.7953 29.2048 3.33333 20 3.33333C10.7953 3.33333 3.33334 10.7953 3.33334 20C3.33334 29.2047 10.7953 36.6667 20 36.6667Z' fill='white' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M20 13.3333L13.3333 20L20 26.6667' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M26.6667 20H13.3333' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+    width: 43px;
+    height: 41px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -19px;
+    left: 12px;
 }
 .arrow_carrot-right:before {
-	content: "\35";
+	content: "";
+	background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 3.33334C10.7953 3.33334 3.33335 10.7953 3.33335 20C3.33335 29.2048 10.7953 36.6667 20 36.6667C29.2048 36.6667 36.6667 29.2047 36.6667 20C36.6667 10.7953 29.2048 3.33334 20 3.33334Z' fill='white' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M20 26.6667L26.6667 20L20 13.3333' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M13.3334 20L26.6667 20' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+	width: 43px;
+    height: 41px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -19px;
+    right: 12px;
 }
 .arrow_carrot-2up:before {
 	content: "\36";
@@ -195,7 +209,7 @@ you can use the generic selector below, but it's slower:
 	content: "\54";
 }
 .icon_search:before {
-	content: "\55";
+	/* content: "\55"; */
 }
 .icon_box-empty:before {
 	content: "\56";

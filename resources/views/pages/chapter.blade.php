@@ -1,10 +1,4 @@
 @extends('../layout')
-{{-- indexcontroller nó đi đến đây và extent của layout và section content lấy yeld(content) --}}
-
-{{-- @section('slide')
-    @include('pages.slide')
-@endsection --}}
-
 @section('content')
     <!-- Breadcrumb Begin -->
     <div class="breadcrumb-option">
@@ -12,9 +6,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
-                        <a href="./index.html"><i class="fa fa-home"></i> Home</a>
-                        <a href="./categories.html">Categories</a>
-                        <span>Romance</span>
+                        <a href="{{url('/')}}"><i class="fa fa-home"></i> Trang chủ</a>
+                        <a href="{{url('danh-muc/'.$truyen_breadcrumb->danhmuctruyen->slug_danhmuc)}}"><i class="fa fa-home"></i> {{$truyen_breadcrumb->danhmuctruyen->tendanhmuc}} </a>
+                        <a href="{{url('the-loai/'.$truyen_breadcrumb->theloai->slug_theloai)}}"><i class="fa fa-home"></i> {{$truyen_breadcrumb->theloai->tentheloai}} </a>
+                        <span>{{$truyen_breadcrumb->tentruyen}}</span>
                     </div>
                 </div>
             </div>
@@ -23,11 +18,6 @@
     <!-- Breadcrumb End -->
     <div class="container mt-5">
         <div class="row">
-            {{-- <select class="form-select" class="select-chapter" id="select-chapter" name="kichhoat">
-                @foreach($all_chapter as $key => $chap)
-                <option value="{{url('xem-chapter/'.$chap->slug_chapter)}}">{{$chap->tieude}}</option>
-                @endforeach
-            </select> --}}
         </div>
     </div>
     
@@ -37,7 +27,6 @@
                 <h5>TÊN TRUYỆN: {{$chapter->truyen->tentruyen}}</h5>
                 <br>
                 <h6 class="text-white">{{$chapter->tieude}}</h6>
-                {{-- <p class="mt-3 text-white">chương hiện tại->{{$chapter->tieude}}</p> --}}
             </div>
             {{-- <div class="text-white">
                 
@@ -67,13 +56,6 @@
                         <a href="#">Ep 02</a>
                         <a href="#">Ep 03</a>
                         <a href="#">Ep 04</a>
-                        <a href="#">Ep 05</a>
-                        <a href="#">Ep 06</a>
-                        <a href="#">Ep 07</a>
-                        <a href="#">Ep 08</a>
-                        <a href="#">Ep 09</a>
-                        <a href="#">Ep 10</a>
-                        <a href="#">Ep 11</a>
                     </div>
                 </div>
             </div>

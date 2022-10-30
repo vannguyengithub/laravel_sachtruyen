@@ -29,6 +29,11 @@ Route::get('/xem-chapter/{slug}', [IndexController::class, 'xemchapter']);
 
 Route::get('/the-loai/{slug}', [IndexController::class, 'theloai']);
 
+// tìm kiếm
+Route::post('/tim-kiem', [IndexController::class, 'timkiem']);
+// tim kiếm ajax
+Route::post('/timkiem-ajax', [IndexController::class, 'timkiem_ajax']);
+
 Auth::routes();
 
 // home admin

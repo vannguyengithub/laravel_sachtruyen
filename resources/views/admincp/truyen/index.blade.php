@@ -29,6 +29,7 @@
                                 <th scope="col">Danh mục</th>
                                 <th scope="col">Thể loại</th>
                                 <th scope="col">Trang Thái</th>
+                                <th scope="col">Từ khóa</th>
                                 <th scope="col">Quản lý</th>
                               </tr>
                             </thead>
@@ -38,7 +39,7 @@
                                     <th class="align-middle" scope="row">{{ $key }}</th>
                                     <td class="align-middle">{{ $truyen->tentruyen}}</td>
                                     <td class="align-middle">
-                                        <img src="{{asset('public/uploads/truyen/'.$truyen->hinhanh)}}" class="" alt="..." width="150px" height="150px" style="object-fit: cover; border: 1px solid; border-radius: 8px">
+                                        <img src="{{asset('public/uploads/truyen/'.$truyen->hinhanh)}}" class="" alt="..." width="80px" height="80px" style="object-fit: cover; border: 1px solid; border-radius: 8px">
                                     </td>
                                     <td class="align-middle">{{ $truyen->slug_truyen}}</td>
                                     <td class="align-middle">
@@ -55,6 +56,9 @@
                                         @else
                                         <span class="text-danger">Không kích hoạt</span>
                                         @endif
+                                    </td>
+                                    <td class="align-middle">
+                                        {{$truyen->tukhoa}}
                                     </td>
                                     <td class="align-middle">
                                         <div class="d-flex">

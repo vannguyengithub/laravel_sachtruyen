@@ -9,7 +9,7 @@
                             <div class="label">{{$value->tacgia}}</div>
                             <h2>{{$value->tentruyen}}</h2>
                             <p>{{$value->tomtat}}</p>
-                            <a href="#">
+                            <a href="{{url('xem-truyen/'.$value->slug_truyen)}}">
                                 <span>Đọc ngay</span>
                                 <i class="fa fa-angle-right"></i>
                             </a>

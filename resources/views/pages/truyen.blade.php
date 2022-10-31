@@ -92,6 +92,16 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="tags mb-4">
+                    <p>Từ khóa tìm kiếm...</p>
+                    <div class="product__item__text">
+                        <ul>
+                            <li>#Active</li>
+                            <li>#Movie</li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-lg-8 col-md-8">
                         <div class="anime__details__review">

@@ -49,6 +49,7 @@ class TruyenController extends Controller
                 'danhmuc_id' => 'required',
                 // 'hinhanh' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max-height=1000',
                 'hinhanh' => 'required',
+                'tukhoa' => 'required',
                 'theloai_id' => 'required',
             ],
             [
@@ -59,6 +60,7 @@ class TruyenController extends Controller
                 'tomtat.required' => 'tóm tắt truyện phải có!',
                 'tacgia.required' => 'tác giả truyện phải có!',
                 'hinhanh.required' => 'hình ảnh truyện phải có!',
+                'tukhoa.required' => 'từ khóa truyện phải có!',
                 'danhmuc_id.required' => 'danh muc id truyện phải có!',
             ]
         );
@@ -67,10 +69,11 @@ class TruyenController extends Controller
         $truyen->tentruyen = $data['tentruyen'];
         $truyen->slug_truyen = $data['slug_truyen'];
         $truyen->tacgia = $data['tacgia'];
-        $truyen->theloai_id = $data['theloai'];
+        $truyen->theloai_id = $data['theloai_id'];
         $truyen->tomtat = $data['tomtat'];
         $truyen->kichhoat = $data['kichhoat'];
         $truyen->danhmuc_id = $data['danhmuc_id'];
+        $truyen->tukhoa = $data['tukhoa'];
 
         // thêm ảnh vào folder
         $get_image = $request->hinhanh;
@@ -133,6 +136,7 @@ class TruyenController extends Controller
                 // 'hinhanh' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max-height=1000',
                 // 'hinhanh' => 'required',
                 'theloai_id' => 'required',
+                'tukhoa' => 'required',
             ],
             [
                 // custome validate
@@ -142,6 +146,7 @@ class TruyenController extends Controller
                 'tacgia.required' => 'tác giả truyện phải có!',
                 // 'hinhanh.required' => 'hình ảnh truyện phải có!',
                 'danhmuc_id.required' => 'danh muc id truyện phải có!',
+                'tukhoa.required' => 'từ khóa truyện phải có!',
             ]
         );
 
@@ -153,6 +158,7 @@ class TruyenController extends Controller
         $truyen->kichhoat = $data['kichhoat'];
         $truyen->danhmuc_id = $data['danhmuc_id'];
         $truyen->theloai_id = $data['theloai_id'];
+        $truyen->tukhoa = $data['tukhoa'];
 
         // thêm ảnh vào folder
         $get_image = $request->hinhanh;

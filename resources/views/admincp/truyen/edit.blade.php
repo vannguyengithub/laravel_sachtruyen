@@ -60,12 +60,18 @@
                             <label for="exampleInputEmail1">Tóm tắc truyện</label>
                             <textarea class="form-control" name="tomtat" id="exampleFormControlTextarea1" rows="3">{{$truyen->tomtat}}</textarea>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group card-body">
                             <label for="exampleInputEmail1">Hình ảnh</label>
                             <input type="file" class="form-control-file"  name="hinhanh">
                             <img src="{{asset('public/uploads/truyen/'.$truyen->hinhanh)}}" class="mt-3" alt="..." width="200px" height="200px" style="object-fit: cover; border: 1px solid; border-radius: 8px">
                         </div>
-                        <div class="form-group">
+
+                        <div class="form-group card-body">
+                            <label for="exampleInputEmail1">Từ khóa (ngăn cách với nhau bởi dấu phẩy',')</label>
+                            <input type="text" class="form-control" value="{{$truyen->tukhoa}}" name="tukhoa" aria-describedby="emailHelp" placeholder="từ khóa">
+                        </div>
+
+                        <div class="form-group card-body">
                             <label for="exampleFormControlSelect1">Trạng thái </label>
                             <select class="form-control" name="kichhoat" id="exampleFormControlSelect1">
                                 @if ($truyen->kichhoat == 0)
@@ -77,7 +83,9 @@
                                 @endif
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Cập nhật truyện</button>
+                        <div class=" card-body">
+                            <button type="submit" class="btn btn-primary">Cập nhật truyện</button>
+                        </div>
                     </form>
                 </div>
             </div>

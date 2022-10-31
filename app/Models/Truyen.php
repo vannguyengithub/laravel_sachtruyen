@@ -18,6 +18,7 @@ class Truyen extends Model
         'tacgia',
         'slug_truyen',
         'hinhanh',
+        'tukhoa',
         'danhmuc_id',
         'kichhoat',
         'theloai_id'

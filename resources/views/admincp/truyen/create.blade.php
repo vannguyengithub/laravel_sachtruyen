@@ -29,6 +29,12 @@
                         @csrf   
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Danh mục truyện </label>
+                            {{-- @foreach($danhmuc as $key => $muc)
+                                <div>
+                                    <input type="checkbox" name="danhmuc_id" id="">
+                                    <label for="">{{$muc->tendanhmuc}}</label>
+                                </div>
+                            @endforeach  --}}
                             <select class="form-control" name="danhmuc_id" id="exampleFormControlSelect2">
                                 @foreach($danhmuc as $key => $muc)  
                                     <option value="{{$muc->id}}">{{$muc->tendanhmuc}}</option>
@@ -51,10 +57,12 @@
                             <label for="exampleInputEmail1">Slug tên truyện</label>
                             <input type="text" class="form-control" value="{{old('slug_truyen')}}" name="slug_truyen" id="convert_slug" aria-describedby="emailHelp" placeholder="Slug tên truyện">
                         </div>
+                        
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tác giả</label>
                             <input type="text" class="form-control" value="{{old('tacgia')}}" name="tacgia" aria-describedby="emailHelp" placeholder="tác giả">
                         </div
+                        
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tóm tắc truyện</label>
                             <textarea class="form-control" name="tomtat" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -63,15 +71,22 @@
                             <label for="exampleInputEmail1">Hình ảnh</label>
                             <input type="file" class="form-control-file"  name="hinhanh">
                         </div>
+                        
+                        <div class="form-group card-body">
+                            <label for="exampleInputEmail1">Từ khóa (ngăn cách với nhau bởi dấu phẩy',')</label>
+                            <input type="text" class="form-control" value="{{old('tukhoa')}}" name="tukhoa" aria-describedby="emailHelp" placeholder="từ khóa">
+                        </div>
+
                         <div class="form-group card-body">
                             <label for="exampleFormControlSelect1">Trạng thái </label>
                             <select class="form-control" name="kichhoat" id="exampleFormControlSelect1">
                               <option value="0">Kích hoạt</option>
                               <option value="1">Không kích hoạt</option>
-                          
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Thêm truyện</button>
+                        <div class="card-body">
+                            <button type="submit" class="btn btn-primary ">Thêm truyện</button>
+                        </div>
                     </form>
                 </div>
             </div>

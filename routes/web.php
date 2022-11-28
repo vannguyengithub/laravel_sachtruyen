@@ -29,6 +29,8 @@ Route::get('/xem-chapter/{slug}', [IndexController::class, 'xemchapter']);
 
 Route::get('/the-loai/{slug}', [IndexController::class, 'theloai']);
 
+Route::get('/tag/{tag}', [IndexController::class, 'tag']);
+
 // tìm kiếm
 Route::post('/tim-kiem', [IndexController::class, 'timkiem']);
 // tim kiếm ajax

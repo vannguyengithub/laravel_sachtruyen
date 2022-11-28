@@ -21,7 +21,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     Admin Sách Truyện
                 </a>
@@ -78,7 +78,7 @@
             @yield('content')
         </main>
     </div>
-    <script src="//cdn.ckeditor.com/4.20.0/full/ckeditor.js"></script>
+    
     <script type="text/javascript">
         CKEDITOR.replace('noidung_chapter');
     </script>
@@ -114,6 +114,6 @@
                 document.getElementById('convert_slug').value = slug;
             }
     </script>
-     
+    
 </body>
 </html>

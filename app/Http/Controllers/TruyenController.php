@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Models\DanhmucTruyen;
 use App\Models\Truyen;
 use App\Models\Theloai;
@@ -51,6 +52,7 @@ class TruyenController extends Controller
                 'hinhanh' => 'required',
                 'tukhoa' => 'required',
                 'theloai_id' => 'required',
+                'truyen_noibac' => 'required',
             ],
             [
                 // custome validate
@@ -61,10 +63,17 @@ class TruyenController extends Controller
                 'tacgia.required' => 'tác giả truyện phải có!',
                 'hinhanh.required' => 'hình ảnh truyện phải có!',
                 'tukhoa.required' => 'từ khóa truyện phải có!',
+                'truyen_noibac.required' => 'phai chon',
                 'danhmuc_id.required' => 'danh muc id truyện phải có!',
             ]
         );
 
+        // $illness_arr = $request->danhmuc_id;
+        // if(count($illness_arr) > 0 ) {
+        //     $truyen = new Truyen();
+        //     $truyen->danhmuc_id = json_encode($truyen);
+        //     $truyen->save();
+        // }
         $truyen = new Truyen();
         $truyen->tentruyen = $data['tentruyen'];
         $truyen->slug_truyen = $data['slug_truyen'];
@@ -72,8 +81,10 @@ class TruyenController extends Controller
         $truyen->theloai_id = $data['theloai_id'];
         $truyen->tomtat = $data['tomtat'];
         $truyen->kichhoat = $data['kichhoat'];
-        $truyen->danhmuc_id = $data['danhmuc_id'];
+        $truyen->truyen_noibac = $data['truyen_noibac'];
         $truyen->tukhoa = $data['tukhoa'];
+        $truyen->danhmuc_id = $data['danhmuc_id'];
+        $truyen->created_at = Carbon::now('Asia/Ho_Chi_Minh'); 
 
         // thêm ảnh vào folder
         $get_image = $request->hinhanh;
@@ -137,6 +148,8 @@ class TruyenController extends Controller
                 // 'hinhanh' => 'required',
                 'theloai_id' => 'required',
                 'tukhoa' => 'required',
+                'truyen_noibac' => 'required',
+
             ],
             [
                 // custome validate
@@ -147,6 +160,8 @@ class TruyenController extends Controller
                 // 'hinhanh.required' => 'hình ảnh truyện phải có!',
                 'danhmuc_id.required' => 'danh muc id truyện phải có!',
                 'tukhoa.required' => 'từ khóa truyện phải có!',
+                'truyen_noibac.required' => 'phai chon',
+
             ]
         );
 
@@ -156,9 +171,11 @@ class TruyenController extends Controller
         $truyen->tacgia = $data['tacgia'];
         $truyen->tomtat = $data['tomtat'];
         $truyen->kichhoat = $data['kichhoat'];
+        $truyen->truyen_noibac = $data['truyen_noibac'];
         $truyen->danhmuc_id = $data['danhmuc_id'];
         $truyen->theloai_id = $data['theloai_id'];
         $truyen->tukhoa = $data['tukhoa'];
+        $truyen->updated_at = Carbon::now('Asia/Ho_Chi_Minh'); 
 
         // thêm ảnh vào folder
         $get_image = $request->hinhanh;

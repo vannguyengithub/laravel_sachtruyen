@@ -9,6 +9,11 @@ class Truyen extends Model
 {
     use HasFactory;
 
+    protected $dates = [
+        'created_at',
+        'updated_at'
+    ];
+
     public $timestamps = false;
 
     protected $fillable = [
@@ -21,7 +26,10 @@ class Truyen extends Model
         'tukhoa',
         'danhmuc_id',
         'kichhoat',
-        'theloai_id'
+        'theloai_id',
+        'created_at',
+        'updated_at',
+        'truyen_noibac'
     ];
 
     protected $primaryKey = 'id';
@@ -41,4 +49,11 @@ class Truyen extends Model
     public function theloai() {
         return $this->belongsTo('App\Models\Theloai', 'theloai_id', 'id');
     }
+
+    // public function thuocnhieudanhmuctruyen() {
+    //     return $this belongsToMany(DanhmucTruyen::class, 'thuocdanh', 'truyen_id', 'danhmuc_id');
+    // }
+    // public function thuocnhieutheloaitruyen() {
+    //     return $this belongsToMany(Theloai::class, 'thuocdanh', 'truyen_id', 'danhmuc_id');
+    // }
 }

@@ -4,7 +4,7 @@
 
 @include('layouts.nav')
 
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">

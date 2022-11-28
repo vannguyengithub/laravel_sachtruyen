@@ -84,6 +84,14 @@
                               <option value="1">Không kích hoạt</option>
                             </select>
                         </div>
+                        <div class="form-group card-body">
+                            <label for="exampleFormControlSelect1">Truyện mới/hot </label>
+                            <select class="form-control" name="truyen_noibac" id="exampleFormControlSelect1">
+                              <option value="0">Truyện mới</option>
+                              <option value="1">Hot</option>
+                              <option value="2">Truyện xem nhiều</option>
+                            </select>
+                        </div>
                         <div class="card-body">
                             <button type="submit" class="btn btn-primary ">Thêm truyện</button>
                         </div>

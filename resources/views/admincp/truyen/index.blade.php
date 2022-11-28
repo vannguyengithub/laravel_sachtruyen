@@ -4,7 +4,7 @@
 
 @include('layouts.nav')
 
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
@@ -30,6 +30,9 @@
                                 <th scope="col">Thể loại</th>
                                 <th scope="col">Trang Thái</th>
                                 <th scope="col">Từ khóa</th>
+                                <th scope="col">Hot</th>
+                                <th scope="col">Ngày tạo</th>
+                                <th scope="col">Ngày cập nhật</th>
                                 <th scope="col">Quản lý</th>
                               </tr>
                             </thead>
@@ -58,7 +61,24 @@
                                         @endif
                                     </td>
                                     <td class="align-middle">
+                                        @if ($truyen->truyen_noibac == 0)
+                                            <span class="text-success">Truyện mới</span>
+                                        @elseif($truyen->truyen_noibac == 1)
+                                            <span class="text-danger">HOT</span>
+                                        @else 
+                                            <span class="text-danger">Xem thường xuyên</span>
+                                        @endif
+                                    </td>
+                                    <td class="align-middle">
                                         {{$truyen->tukhoa}}
+                                    </td>
+                                    <td class="align-middle">
+                                        {{$truyen->created_at}} <br> --- <br> {{$truyen->created_at->diffForHumans()}}
+                                    </td>
+                                    <td class="align-middle">
+                                        @if($truyen->updated_at != '')
+                                        {{$truyen->updated_at}} <br> --- <br> {{$truyen->updated_at->diffForHumans()}}
+                                        @endif
                                     </td>
                                     <td class="align-middle">
                                         <div class="d-flex">

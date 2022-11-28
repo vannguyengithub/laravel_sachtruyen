@@ -7,6 +7,8 @@
         <title>SÁCH TRUYỆN</title>
 
         <!-- Fonts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>   
+
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/owl.carousel.min.css') }}" rel="stylesheet">
@@ -17,12 +19,20 @@
         <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
         {{-- css global --}}
-        <link href="{{ asset('css/elegant-icons.css') }}" rel="stylesheet">
+        {{-- <link href="{{ asset('css/elegant-icons.css') }}" rel="stylesheet"> --}}
         <link href="{{ asset('css/plyr.css') }}" rel="stylesheet">
         <link href="{{ asset('css/nice-select.css') }}" rel="stylesheet">
         <link href="{{ asset('css/slicknav.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
+        {{-- start meta share facebook --}}
+        {{-- <meta property="og:type"               content="website" />
+        <meta property="og:title"              content="{{$title}}" />
+        <meta property="og:description"        content="{{$meta_desc}}" />
+        <meta property="og:image"              content="{{$og_image}}" />
+        <meta property="og:url"                content="{{$url_canonical}}" />
+        <meta property="og:size_name"          content="sachtruyen" /> --}}
+        {{-- start meta share facebook --}}
     </head>
     <body>
 
@@ -45,7 +55,7 @@
                         <div class="header__nav">
                             <nav class="header__menu mobile-menu">
                                 <ul>
-                                    <li class="active"><a href="{{url('/')}}">Trang chủ</a></li>
+                                    {{-- <li class="active"><a href="{{url('/')}}">Trang chủ</a></li> --}}
                                     <li>
                                         <a href="./categories.html">
                                             Danh mục truyện
@@ -70,9 +80,9 @@
                                             @endforeach
                                         </ul>
                                     </li>
-                                    <li>
+                                    {{-- <li>
                                         <a href="#">Contacts</a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </nav>
                         </div>
@@ -127,7 +137,7 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="footer__logo">
-                            <a href="./index.html"><img src="images/logo.png" alt=""></a>
+                            {{-- <a href="./index.html"><img src="images/logo.png" alt=""></a> --}}
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -170,8 +180,8 @@
                 </form>
             </div>
         </div>
+        
         <!-- Search model end -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>   
         <script src="{{ asset('js/player.js') }}" ></script>
         <script src="{{ asset('js/jquery.nice-select.min.js') }}" ></script>
         <script src="{{ asset('js/jquery.slicknav.js') }}" ></script>
@@ -181,20 +191,95 @@
         
 
         <script type="text/javascript">
-            $("#select-chapter").on('change', function() {
-                var url = $(this).val();
-                if(url) {
-                    window.location = url;
-                }
-                return false;
-            });
+            // $("#select-chapter").on('change', function() {
+            //     var url = $(this).val();
+            //     if(url) {
+            //         window.location = url;
+            //     }
+            //     return false;
+            // });
 
-            current_chapter();
-            function current_chapter() {
-                var url = window.location.href;
-                $('#select-chapter').find('li[value="'+url+'"]').classList.add("selected");
-                $('#select-chapter').find('option[value="'+url+'"]').attr("selected", true);
+            // current_chapter();
+            // function current_chapter() {
+            //     var url = window.location.href;
+            //     $('#select-chapter').find('li[value="'+url+'"]').classList.add("selected");
+            //     $('#select-chapter').find('option[value="'+url+'"]').attr("selected", true);
+            // }
+
+
+            // like truyen
+            show_wishlist();
+            function show_wishlist() {
+                if(localStorage.getItem('wishlist_truyen') != null) {
+                    var data = JSON.parse(localStorage.getItem('wishlist_truyen'));
+                    data.reverse();
+                     for(i=0; i<data.length; i++) {
+                        var title = data[i].title;
+                        var img = data[i].img;
+                        var id = data[i].id;
+                        var url = data[i].url;
+                        $('#yeuthich').append(`
+                            <div class="product__sidebar__comment__item">
+                                <div class="product__sidebar__comment__item__pic">
+                                    <img src="`+img+`" alt="`+title+`" style="width: 50px; height: 100px; object-fit: cover">
+                                </div>
+                                <div class="product__sidebar__comment__item__text">
+                                    <h5><a href="`+url+`">`+title+`</a></h5>
+                                    <span><i class="fa fa-eye"></i> 19.141 Viewes</span>
+                                </div>
+                            </div>
+                        `);
+                     }
+                }
             }
+
+
+            $( ".btn-thichtruyen" ).click(function() {
+                $('.fa-heart').css('color', '#FF1493');
+                const id = $('.wishlist_id').val();
+                const title = $('.wishlist_title').val();
+                const img = $('.card-img-top').attr('data-setbg');
+                const url = $('.wishlist_url').val();
+                
+                const item = {
+                    'id': id ,
+                    'title': title,
+                    'img': img,
+                    'url': url
+                }
+
+                if(localStorage.getItem('wishlist_truyen') == null) {
+                    localStorage.setItem('wishlist_truyen', '[]');
+                }
+                var old_data = JSON.parse(localStorage.getItem('wishlist_truyen'));
+                var matches = $.grep(old_data, function(obj){
+                    return obj.id == id;
+                }) 
+                if(matches.length) {
+                    alert('truyện đã có trong danh sách yêu thích');
+                }else {
+                    if(old_data.length <= 8){
+                        old_data.push(item);
+                    }else {
+                        alert('Đã đạt tới giới hạn lưu truyện yêu thích');
+                    }
+
+                    $('#yeuthich').append(`
+                        <div class="product__sidebar__comment__item">
+                            <div class="product__sidebar__comment__item__pic">
+                                <img src="`+img+`" alt="`+title+`" style="width: 50px; height: 100px; object-fit: cover">
+                            </div>
+                            <div class="product__sidebar__comment__item__text">
+                                <h5><a href="`+url+`">`+title+`</a></h5>
+                                <span><i class="fa fa-eye"></i> 19.141 Viewes</span>
+                            </div>
+                        </div>
+                    `);
+                    localStorage.setItem('wishlist_truyen', JSON.stringify(old_data));
+                    alert('Đã thêm vào wishlist');
+                }
+                localStorage.setItem('wishlist_truyen', JSON.stringify(old_data));
+            });
         </script>
 
         {{-- start: search ajax --}}
@@ -225,5 +310,8 @@
             })
         </script>
         {{-- end: search ajax --}}
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v15.0" nonce="lcJRhWmv"></script>
+     
     </body>
 </html>

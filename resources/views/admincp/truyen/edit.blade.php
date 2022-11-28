@@ -83,6 +83,24 @@
                                 @endif
                             </select>
                         </div>
+                        <div class="form-group card-body">
+                            <label for="exampleFormControlSelect1">Hot </label>
+                            <select class="form-control" name="truyen_noibac" id="exampleFormControlSelect1">
+                                @if ($truyen->truyen_noibac == 0)
+                                    <option value="0" selected>truyện mới</option>
+                                    <option value="1">Hot</option>
+                                    <option value="2">truyện nhiều lượt xem</option>
+                                @elseif($truyen->truyen_noibac == 1)
+                                    <option value="0" >truyện mới</option>
+                                    <option value="1" selected>Hot</option>
+                                    <option value="2">truyện nhiều lượt xem</option>
+                                @else
+                                    <option value="0" >truyện mới</option>
+                                    <option value="1">Hot</option>
+                                    <option value="2" selected>truyện nhiều lượt xem</option>
+                                @endif
+                            </select>
+                        </div>
                         <div class=" card-body">
                             <button type="submit" class="btn btn-primary">Cập nhật truyện</button>
                         </div>

@@ -9,21 +9,28 @@
     <section class="product spad">
         <div class="container">
             <div class="row">
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
-                    </li>
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">..âs.</div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">.sss..</div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">.w..</div>
+                <div class="mb-4">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        @foreach ($danhmuc as $key => $tabsdanhmuc)
+                        <li class="nav-item">
+                            <a class="nav-link " id="home-tab" data-toggle="tab" href="#{{$tabsdanhmuc->slug_danhmuc}}" role="tab" aria-controls="home" aria-selected="true">
+                                {{$tabsdanhmuc->tendanhmuc}}
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
+                    <div class="tab-content mt-2" id="myTabContent">
+                        @foreach ($danhmuc as $key => $tab_hienthi_danhmuc)
+                        <div class="tab-pane fade text-light show " id="{{$tab_hienthi_danhmuc->slug_danhmuc}}" role="tabpanel" aria-labelledby="home-tab">
+                            <h4 class="text-light">
+                                {{$tab_hienthi_danhmuc->tendanhmuc}}
+                            </h4>
+                            <div id="tab_danhmuctruyen">
+
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
             <div class="row">
